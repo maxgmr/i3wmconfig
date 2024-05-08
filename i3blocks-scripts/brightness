@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+
+from subprocess import check_output
+import os
+import re
+
+config = dict(os.environ)
+current_brightness = check_output(['brightnessctl', 'g'], universal_newlines=True)
+max_brightness = check_output(['brightnessctl', 'm'], universal_newlines=True)
+output = ""
+
+if not max_brightness:
+   # not good!!!!!!!
+   color = "#fdfff1" # white
+   output = "<span color='{}'>Err: no max</span>".format(color)
+if not current_brightness:
+   # not good!!!!!!
+   color = "#fdfff1" # offwhite
+   output = "<span color='{}'>Err: no cur</span>".format(color)
+else:
+   color = "#fdfff1" # offwhite
+   output = '<span color ="{}">{:.0f}</span>'.format(color, (int(current_brightness) / int(max_brightness)) * 100)
+print(output)
+if not max_brightness or not current_brightness:
+   exit(33)
+  

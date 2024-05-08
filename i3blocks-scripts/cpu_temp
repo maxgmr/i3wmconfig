@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+
+from subprocess import check_output, Popen, PIPE
+import os
+
+# Above this temperature is cause for concern
+CRITICAL_TEMP = 100
+
+config = dict(os.environ)
+
+full_status = Popen(['sensors', '-u', 'coretemp-isa-0000'], stdout=PIPE)
+temperature_list = check_output(['awk', '/input/ {print $2}'], stdin=full_status.stdout, universal_newlines=True)
+full_status.wait()
+
+temperature_list = list(map(lambda t: float(t), temperature_list.splitlines()))
+avg_temp = int(sum(temperature_list) / len(temperature_list))
+
+THERMOMETER_FULL = "<span font='FontAwesome'>\uf2c7</span>"
+THERMOMETER_THQU = "<span font='FontAwesome'>\uf2c8</span>"
+THERMOMETER_HALF = "<span font='FontAwesome'>\uf2c9</span>"
+THERMOMETER_ONQU = "<span font='FontAwesome'>\uf2ca</span>"
+
+DEG_C = "°C"
+
+fulltext = "error"
+colour = "#f76c7c" # red
+
+if avg_temp < CRITICAL_TEMP * 0.6:
+   fulltext = THERMOMETER_ONQU + " " + str(avg_temp) + DEG_C
+   colour = "#78cee9" # blue
+elif avg_temp < CRITICAL_TEMP * 0.7:
+   fulltext = THERMOMETER_HALF + " " + str(avg_temp) + DEG_C
+   colour = "#9cd57b" # green
+elif avg_temp < CRITICAL_TEMP * 0.8:
+   fulltext = THERMOMETER_THQU + " " + str(avg_temp) + DEG_C
+   colour = "#e3d367" # yellow
+elif avg_temp < CRITICAL_TEMP * 0.9:
+   fulltext = THERMOMETER_FULL + " " + str(avg_temp) + DEG_C
+   colour = "#f3a96a" # orange
+elif avg_temp < CRITICAL_TEMP:
+   fulltext = THERMOMETER_FULL + " " + str(avg_temp) + DEG_C
+   colour = "#f76c7c" # red
+else:
+   fulltext = THERMOMETER_FULL + " " + str(avg_temp) + DEG_C
+   colour = "#fdfff1" # offwhite
+
+form = '<span color="{}">{}</span>'
+output = form.format(colour, fulltext)
+
+print(output)
+print(output)
+if avg_temp >= CRITICAL_TEMP:
+   exit(33)

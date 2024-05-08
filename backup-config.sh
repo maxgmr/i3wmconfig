@@ -18,4 +18,4 @@ fi
 cp ~/.config/i3blocks/config "$SCRIPT_DIR/i3blocksconfig" && echo "i3blocks config backed up successfully."
 
 echo "Backing up i3blocks scripts..."
-find ~/computer/i3blocks-scripts/. -mindepth 1 | grep -v ~$ | xargs -I{} cp {} ~/computer/software/i3wmconfig/i3blocks-scripts/ && echo "i3blocks scripts backed up successfully."
+find ~/computer/i3blocks-scripts -mindepth 1 -maxdepth 1 -path ~/computer/i3blocks-scripts/venv -prune -o -print | grep -v ~$ | xargs -I{} cp {} ~/computer/dev/i3wmconfig/i3blocks-scripts/ && echo "i3blocks scripts backed up successfully."

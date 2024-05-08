@@ -1,0 +1,123 @@
+#!/usr/bin/env python3
+#
+# Copyright (C) 2016 James Murphy
+# Licensed under the GPL version 2 only
+#
+# A battery indicator blocklet script for i3blocks
+
+from subprocess import check_output
+import os
+import re
+
+config = dict(os.environ)
+status = check_output(['acpi'], universal_newlines=True)
+
+if not status:
+    # stands for no battery found
+    color = "#f76c7c" # red
+    fulltext = "<span color='{}'><span font='FontAwesome'>\uf00d \uf240</span></span>".format(color)
+    percentleft = 100
+else:
+    # if there is more than one battery in one laptop, the percentage left is
+    # available for each battery separately, although state and remaining
+    # time for overall block is shown in the status of the first battery
+    batteries = status.split("\n")
+    state_batteries=[]
+    commasplitstatus_batteries=[]
+    percentleft_batteries=[]
+    time = ""
+    for battery in batteries:
+        if battery!='':
+            state_batteries.append(battery.split(": ")[1].split(", ")[0])
+            commasplitstatus = battery.split(", ")
+            if not time:
+                time = commasplitstatus[-1].strip()
+                # check if it matches a time
+                time = re.match(r"(\d+):(\d+)", time)
+                if time:
+                    time = ":".join(time.groups())
+                    timeleft = " ({})".format(time)
+                else:
+                    timeleft = ""
+
+            p = int(commasplitstatus[1].rstrip("%\n"))
+            if p>0:
+                percentleft_batteries.append(p)
+            commasplitstatus_batteries.append(commasplitstatus)
+    state = state_batteries[0]
+    commasplitstatus = commasplitstatus_batteries[0]
+    if percentleft_batteries:
+        percentleft = int(sum(percentleft_batteries)/len(percentleft_batteries))
+    else:
+        percentleft = 0
+
+    # stands for charging
+    color = "#e3d367" # yellow
+    FA_LIGHTNING = "<span color='{}'><span font='FontAwesome'>\uf0e7</span></span>".format(color)
+
+    # stands for plugged in
+    FA_PLUG = "<span font='FontAwesome'>\uf1e6</span>"
+
+    # stands for using full battery
+    FA_BATTERY_FULL = "<span font='FontAwesome'>\uf240</span>"
+
+    # stands for using three-quarters battery
+    FA_BATTERY_TQ = "<span font='FontAwesome'>\uf241</span>"
+    
+    # stands for using half battery
+    FA_BATTERY_HALF = "<span font='FontAwesome'>\uf242</span>"
+
+    # stands for using one-quarter battery
+    FA_BATTERY_QUARTER = "<span font='FontAwesome'>\uf243</span>"
+
+    # stands for using very low battery
+    FA_BATTERY_LOW = "<span font='FontAwesome'>\uf244</span>"
+
+    # stands for unknown status of battery
+    FA_QUESTION = "<span font='FontAwesome'>\uf128</span>"
+
+
+    fulltext = ""
+    
+    if state == "Discharging":
+        if percentleft < 10:
+            fulltext = FA_BATTERY_LOW + " "
+        elif percentleft < 30:
+            fulltext = FA_BATTERY_QUARTER + " "
+        elif percentleft < 60:
+            fulltext = FA_BATTERY_HALF + " "
+        elif percentleft < 85:
+            fulltext = FA_BATTERY_TQ + " "
+        else:
+            fulltext = FA_BATTERY_FULL + " "
+    elif state == "Full":
+        fulltext = FA_PLUG + " "
+        timeleft = ""
+    elif state == "Unknown":
+        fulltext = FA_QUESTION + " " + FA_BATTERY + " "
+        timeleft = ""
+    else:
+        fulltext = FA_LIGHTNING + " " + FA_PLUG + " "
+
+    def color(percent):
+        if percent < 10:
+            # exit code 33 will turn background red
+            return "#fdfff1" # white
+        if percent < 30:
+            return "#f76c7c" # red
+        if percent < 50:
+            return "#f3a96a" # orange
+        if percent < 70:
+            return "#e3d367" # yellow
+        if percent < 90:
+            return "#9cd57b" # green
+        return "#78cee9" # blue
+
+    form =  '<span color="{}">{}%</span>'
+    fulltext += form.format(color(percentleft), percentleft)
+    fulltext += timeleft
+
+print(fulltext)
+print(fulltext)
+if percentleft < 10:
+    exit(33)
