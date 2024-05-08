@@ -29,5 +29,5 @@ Taken from https://github.com/firatakandere/i3blocks-spotify
 ```volume``` from https://github.com/vivien/i3blocks-contrib/
 #### wifi
 ```ssid``` and ```wifi``` from https://github.com/vivien/i3blocks-contrib/ displayed together.
-#### wifi_strength
+#### wifi-strength
 ```wifi``` from https://github.com/vivien/i3blocks-contrib/
