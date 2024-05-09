@@ -15,7 +15,7 @@ interval=once
 signal=3
 
 [brightness]
-label= 
+label= 
 command=~/computer/i3blocks-scripts/brightness
 markup=pango
 interval=once
