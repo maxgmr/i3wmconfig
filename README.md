@@ -1,6 +1,9 @@
 # i3wmconfig
 My personal i3wm config files and scripts. Used as a backup.
 
+#### backup-config.sh
+Copies my config files to this repo so I can upload it. If you want it to work on your machine you'd have to change the file paths manually.
+
 ## i3blocks Scripts
 #### battery2
 Slightly modified version of ```battery2``` from https://github.com/vivien/i3blocks-contrib/
@@ -26,5 +29,5 @@ Taken from https://github.com/firatakandere/i3blocks-spotify
 ```volume``` from https://github.com/vivien/i3blocks-contrib/
 #### wifi
 ```ssid``` and ```wifi``` from https://github.com/vivien/i3blocks-contrib/ displayed together.
-#### wifi
+#### wifi-strength
 ```wifi``` from https://github.com/vivien/i3blocks-contrib/
