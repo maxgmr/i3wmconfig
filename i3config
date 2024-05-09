@@ -241,8 +241,8 @@ set $dblue-colour #1e94b9
 
 # class				border		backgr.		text		indicator	child_border
 client.focused			$bg3-colour	$bg3-colour	$blue-colour	$fg-colour	$bg3-colour
-client.focused_inactive     	$bg0-colour	$bg0-colour	$lgrey-colour	$fg-colour	$bg0-colour
-client.unfocused            	$bg0-colour	$bg0-colour	$lgrey-colour	$fg-colour	$bg0-colour
+client.focused_inactive     	$bg0-coloure6	$bg0-coloure6	$lgrey-coloure6	$fg-coloure6	$bg0-coloure6
+client.unfocused            	$bg0-coloure6	$bg0-coloure6	$lgrey-coloure6	$fg-coloure6	$bg0-coloure6
 client.urgent         	    	$red-colour	$bg0-colour	$red-colour	$fg-colour	$red-colour
 client.placeholder          	$bg0-colour	$bg0-colour	$yellow-colour	$fg-colour	$bg0-colour
 client.background           	$fg-colour
