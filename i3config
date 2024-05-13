@@ -62,7 +62,8 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
+# bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+return exec terminator
 
 # kill focused window
@@ -224,20 +225,29 @@ set $greydim-colour #655b4e
 # set $grey-colour #82878b
 set $grey-colour #928572
 set $lgrey-colour #d7d2cb
+set $lgreyst-colour #f8f7f6
 set $lcoolgrey-colour #d4d6db
+set $redst-colour #f3233b
 set $red-colour #f76c7c
 set $bgred-colour #ff6d7e
+set $greenst-colour #70c341
 set $green-colour #9cd57b
 set $bggreen-colour #a2e57b
+set $yellowst-colour #d6c027
 set $yellow-colour #e3d367
 set $diffyellow-colour #4e432f
 set $orange-colour #f3a96a
 set $diffred-colour #55593d
+set $purplest-colour #8659f3
 set $purple-colour #baa0f8
 set $diffblue-colour #354157
+set $bluest-colour #36b6de
 set $blue-colour #78cee9
 set $bgblue-colour #7cd5f1
 set $dblue-colour #1e94b9
+set $teal-colour #81dfc9
+set $tealst-colour #44d0af
+
 
 # class				border		backgr.		text		indicator	child_border
 client.focused			$bg3-colour	$bg3-colour	$blue-colour	$fg-colour	$bg3-colour
