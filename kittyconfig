@@ -6,10 +6,10 @@
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-font_family      Fira Code Medium
-bold_font        Fira Code Bold
-italic_font      Fira Code Italic
-bold_italic_font Fira Code Bold Italic
+font_family      GoMono Nerd Font Mono
+bold_font        GoMono Nerd Font Mono Bold
+italic_font      GoMono Nerd Font Mono Italic
+bold_italic_font GoMono Nerd Font Mono Bold Italic
 
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. To get a full list of supported fonts use the `kitty
