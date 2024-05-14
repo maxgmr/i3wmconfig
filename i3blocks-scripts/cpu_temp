@@ -23,26 +23,26 @@ THERMOMETER_ONQU = "<span font='FontAwesome'>\uf2ca</span>"
 DEG_C = "°C"
 
 fulltext = "error"
-colour = "#f76c7c" # red
+colour = "#fb4934" # red
 
 if avg_temp < CRITICAL_TEMP * 0.6:
    fulltext = THERMOMETER_ONQU + " " + str(avg_temp) + DEG_C
-   colour = "#78cee9" # blue
+   colour = "#83a598" # blue
 elif avg_temp < CRITICAL_TEMP * 0.7:
    fulltext = THERMOMETER_HALF + " " + str(avg_temp) + DEG_C
-   colour = "#9cd57b" # green
+   colour = "#b8bb26" # green
 elif avg_temp < CRITICAL_TEMP * 0.8:
    fulltext = THERMOMETER_THQU + " " + str(avg_temp) + DEG_C
-   colour = "#e3d367" # yellow
+   colour = "#fabd2f" # yellow
 elif avg_temp < CRITICAL_TEMP * 0.9:
    fulltext = THERMOMETER_FULL + " " + str(avg_temp) + DEG_C
-   colour = "#f3a96a" # orange
+   colour = "#fe8019" # orange
 elif avg_temp < CRITICAL_TEMP:
    fulltext = THERMOMETER_FULL + " " + str(avg_temp) + DEG_C
-   colour = "#f76c7c" # red
+   colour = "#fb4934" # red
 else:
    fulltext = THERMOMETER_FULL + " " + str(avg_temp) + DEG_C
-   colour = "#fdfff1" # offwhite
+   colour = "#ebdbb2" # offwhite
 
 form = '<span color="{}">{}</span>'
 output = form.format(colour, fulltext)

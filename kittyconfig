@@ -1122,8 +1122,8 @@ hide_window_decorations no
 
 #: Color scheme {{{
 
-foreground #d7d2cb
-background #322d27
+foreground #ebdbb2
+background #282828
 
 #: The foreground and background colors.
 
@@ -1223,43 +1223,43 @@ selection_background none
 #: dull and bright version, for the first 16 colors. You can set the
 #: remaining 240 colors as color16 to color255.
 
-color0 #5c5346
-color8 #928572
+color0 #282828
+color8 #928374
 
 #: black
 
-color1 #f3233b
-color9 #f76c7c
+color1 #cc241d
+color9 #fb4934
 
 #: red
 
-color2 #70c341
-color10  #9cd57b
+color2 #98971a
+color10  #b8bb26
 
 #: green
 
-color3 #d6c027
-color11  #e3d367
+color3 #d79921
+color11  #fabd2f
 
 #: yellow
 
-color4 #36b6de
-color12  #78cee9
+color4 #458588
+color12  #83a598
 
 #: blue
 
-color5 #8659f3
-color13  #baa0f8
+color5 #b16286
+color13  #d3869b
 
 #: magenta
 
-color6 #44d0af
-color14  #81dfc9
+color6 #689d6a
+color14  #8ec07c
 
 #: cyan
 
-color7  #d7d2cb
-color15 #f8f7f6
+color7  #a89984
+color15 #ebdbb2
 
 #: white
 

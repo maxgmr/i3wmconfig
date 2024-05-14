@@ -14,7 +14,7 @@ status = check_output(['acpi'], universal_newlines=True)
 
 if not status:
     # stands for no battery found
-    color = "#f76c7c" # red
+    color = "#fb4934" # red
     fulltext = "<span color='{}'><span font='FontAwesome'>\uf00d \uf240</span></span>".format(color)
     percentleft = 100
 else:
@@ -102,16 +102,16 @@ else:
     def color(percent):
         if percent < 10:
             # exit code 33 will turn background red
-            return "#fdfff1" # white
+            return "#ebdbb2" # white
         if percent < 30:
-            return "#f76c7c" # red
+            return "#fb4934" # red
         if percent < 50:
-            return "#f3a96a" # orange
+            return "#fe8019" # orange
         if percent < 70:
-            return "#e3d367" # yellow
+            return "#fabd2f" # yellow
         if percent < 90:
-            return "#9cd57b" # green
-        return "#78cee9" # blue
+            return "#b8bb26" # green
+        return "#83a598" # blue
 
     form =  '<span color="{}">{}%</span>'
     fulltext += form.format(color(percentleft), percentleft)

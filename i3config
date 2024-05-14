@@ -14,7 +14,7 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:EB Garamond SemiBold 12
-font pango:Noto Serif Medium, GoMono Nerd Font Mono 12
+font pango:Noto Serif SemiBold, GoMono Nerd Font Mono 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -204,58 +204,87 @@ exec_always feh --bg-fill ~/media/wallpapers/black_one.png
 # Transparency with picom compositor
 exec_always picom -f
 
-# Colour schemes for windows
-set $fg-colour #fdfff1
-# set $black-colour #1c1e1f
-set $black-colour #12100e
-# set $bgdim-colour #21282c
-set $bgdim-colour #322d27
-# set $bg0-colour #273136
-set $bg0-colour #37322a
-# set $bg1-colour #313b42
-set $bg1-colour #403a31
-# set $bg2-colour #353f46
-set $bg2-colour #494238
-# set $bg3-colour #3a444b
-set $bg3-colour #534b3f
-# set $bg4-colour #414b53
-set $bg4-colour #5c5346
-# set $greydim-colour #55626d
-set $greydim-colour #655b4e
-# set $grey-colour #82878b
-set $grey-colour #928572
-set $lgrey-colour #d7d2cb
-set $lgreyst-colour #f8f7f6
-set $lcoolgrey-colour #d4d6db
-set $redst-colour #f3233b
-set $red-colour #f76c7c
-set $bgred-colour #ff6d7e
-set $greenst-colour #70c341
-set $green-colour #9cd57b
-set $bggreen-colour #a2e57b
-set $yellowst-colour #d6c027
-set $yellow-colour #e3d367
-set $diffyellow-colour #4e432f
-set $orange-colour #f3a96a
-set $diffred-colour #55593d
-set $purplest-colour #8659f3
-set $purple-colour #baa0f8
-set $diffblue-colour #354157
-set $bluest-colour #36b6de
-set $blue-colour #78cee9
-set $bgblue-colour #7cd5f1
-set $dblue-colour #1e94b9
-set $teal-colour #81dfc9
-set $tealst-colour #44d0af
+# # Colour schemes for windows
+# set $fg-colour #fdfff1
+# # set $black-colour #1c1e1f
+# set $black-colour #12100e
+# # set $bgdim-colour #21282c
+# set $bgdim-colour #322d27
+# # set $bg0-colour #273136
+# set $bg0-colour #37322a
+# # set $bg1-colour #313b42
+# set $bg1-colour #403a31
+# # set $bg2-colour #353f46
+# set $bg2-colour #494238
+# # set $bg3-colour #3a444b
+# set $bg3-colour #534b3f
+# # set $bg4-colour #414b53
+# set $bg4-colour #5c5346
+# # set $greydim-colour #55626d
+# set $greydim-colour #655b4e
+# # set $grey-colour #82878b
+# set $grey-colour #928572
+# set $lgrey-colour #d7d2cb
+# set $lgreyst-colour #f8f7f6
+# set $lcoolgrey-colour #d4d6db
+# set $redst-colour #f3233b
+# set $red-colour #f76c7c
+# set $bgred-colour #ff6d7e
+# set $greenst-colour #70c341
+# set $green-colour #9cd57b
+# set $bggreen-colour #a2e57b
+# set $yellowst-colour #d6c027
+# set $yellow-colour #e3d367
+# set $diffyellow-colour #4e432f
+# set $orange-colour #f3a96a
+# set $diffred-colour #55593d
+# set $purplest-colour #8659f3
+# set $purple-colour #baa0f8
+# set $diffblue-colour #354157
+# set $bluest-colour #36b6de
+# set $blue-colour #78cee9
+# set $bgblue-colour #7cd5f1
+# set $dblue-colour #1e94b9
+# set $teal-colour #81dfc9
+# set $tealst-colour #44d0af
 
+# gruvbox
+# white
+set $fg-colour #ebdbb2
+set $black-colour #12100e
+set $bgdim-colour #1d2021
+# black-dim
+set $bg0-colour #282828
+set $bg1-colour #3c3836
+set $bg2-colour #504945
+set $bg3-colour #665c54
+set $bg4-colour #7c6f64
+# black
+set $greydim-colour #928374
+# white-dim
+set $lgrey-colour #a89984
+set $reddim-colour #cc241d
+set $red-colour #fb4934
+set $greendim-colour #98971a
+set $green-colour #b8bb26
+set $yellowdim-colour #d79921
+set $yellow-colour #fabd2f
+set $bluedim-colour #458588
+set $blue-colour #83a598
+set $purpledim-colour #b16286
+set $purple-colour #d3869b
+set $aquadim-colour #689d6a
+set $aqua-colour #8ec07c
+set $orangedim-colour #d65d0e
+set $orange-colour #fe8019
 
 # class				border		backgr.		text		indicator	child_border
-client.focused			$bg3-colour	$bg3-colour	$blue-colour	$fg-colour	$bg3-colour
+client.focused			$bg3-colour	$bg3-colour	$fg-colour	$fg-colour	$bg3-colour
 client.focused_inactive     	$bg0-coloure6	$bg0-coloure6	$lgrey-coloure6	$fg-coloure6	$bg0-coloure6
 client.unfocused            	$bg0-coloure6	$bg0-coloure6	$lgrey-coloure6	$fg-coloure6	$bg0-coloure6
 client.urgent         	    	$red-colour	$bg0-colour	$red-colour	$fg-colour	$red-colour
 client.placeholder          	$bg0-colour	$bg0-colour	$yellow-colour	$fg-colour	$bg0-colour
-client.background           	$fg-colour
+client.background           	$bg3-colour
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -276,8 +305,8 @@ bar {
        statusline $fg-colour
        separator $fg-colour
        #class			border			bg			text
-       focused_workspace	$bg4-coloure6		$bg4-coloure6		$blue-colour
-       active_workspace		$bg0-coloure6		$bg0-coloure6		$blue-colour
+       focused_workspace	$bg4-coloure6		$bg4-coloure6		$fg-colour
+       active_workspace		$bg0-coloure6		$bg0-coloure6		$fg-colour
        inactive_workspace	$black-coloure6		$black-coloure6		$fg-colour
     }
 
@@ -289,7 +318,7 @@ bar {
 gaps inner 7px
 
 # Outer gaps
-# gaps outer 0px
+gaps outer 3px
 
 # Smart gaps
 smart_gaps on

@@ -29,16 +29,16 @@ awk -v cpus=$cpus -v cpuload=$load '
     	cpusnum = cpus + 0;
 	cpuloadnum = cpuload + 0;
         if (cpusnum <= cpuloadnum) {
-            print "#f76c7c";
+            print "#ebdbb2";
             exit 33;
         } else if (cpusnum <= 1.50 * cpuloadnum) {
-	    print "#f3a96a";
+	    print "#d65d0e";
 	} else if (cpusnum <= 2.00 * cpuloadnum) {
-	    print "#e3d367";
+	    print "#fabd2f";
 	} else if (cpusnum <= 10.0 * cpuloadnum) {
-	    print "#9cd57b";
+	    print "#b8bb26";
 	} else {
-	    print "#78cee9";
+	    print "#83a598";
 	}
     }
 '

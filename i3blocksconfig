@@ -1,6 +1,6 @@
 [spotify]
 command=~/computer/i3blocks-scripts/spotify.py
-color=#9cd57b
+color=#b8bb26
 interval=5
 
 [key_layout]
