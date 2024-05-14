@@ -1,5 +1,4 @@
 [spotify]
-label= 
 command=~/computer/i3blocks-scripts/spotify.py
 color=#9cd57b
 interval=5
@@ -15,26 +14,22 @@ interval=once
 signal=3
 
 [brightness]
-label= 
 command=~/computer/i3blocks-scripts/brightness
 markup=pango
 interval=once
 signal=2
 
 [wifi]
-label=
 command=~/computer/i3blocks-scripts/wifi
 INTERFACE=wlp0s20f3
 interval=5
 
 # [ssid]
-# label=
 # command=~/computer/i3blocks-scripts/ssid
 # INTERFACE=wlp0s20f3
 # interval=60
 
 # [wifi-strength]
-## label= 
 # command=~/computer/i3blocks-scripts/wifi-strength
 # interval=5
 # INTERFACE=wlp0s20f3
@@ -51,13 +46,11 @@ interval=10
 signal=10
 
 [memory]
-label= 
 command=~/computer/i3blocks-scripts/memory
 interval=5
 signal=10
 
 [disk]
-label= 
 command=~/computer/i3blocks-scripts/disk
 interval=60
 signal=10
@@ -69,7 +62,6 @@ interval=10
 signal=10
 
 [datetime]
-label= 
-command=date +"%R %a %Y-%m-%d"
+command=date +"󰥔  %R %a %Y-%m-%d"
 interval=5
 signal=10

@@ -59,22 +59,22 @@ else:
     FA_PLUG = "<span font='FontAwesome'>\uf1e6</span>"
 
     # stands for using full battery
-    FA_BATTERY_FULL = "<span font='FontAwesome'>\uf240</span>"
+    FA_BATTERY_FULL = "<span font='FontAwesome'>\uf240 </span>"
 
     # stands for using three-quarters battery
-    FA_BATTERY_TQ = "<span font='FontAwesome'>\uf241</span>"
+    FA_BATTERY_TQ = "<span font='FontAwesome'>\uf241 </span>"
     
     # stands for using half battery
-    FA_BATTERY_HALF = "<span font='FontAwesome'>\uf242</span>"
+    FA_BATTERY_HALF = "<span font='FontAwesome'>\uf242 </span>"
 
     # stands for using one-quarter battery
-    FA_BATTERY_QUARTER = "<span font='FontAwesome'>\uf243</span>"
+    FA_BATTERY_QUARTER = "<span font='FontAwesome'>\uf243 </span>"
 
     # stands for using very low battery
-    FA_BATTERY_LOW = "<span font='FontAwesome'>\uf244</span>"
+    FA_BATTERY_LOW = "<span font='FontAwesome'>\uf244 </span>"
 
     # stands for unknown status of battery
-    FA_QUESTION = "<span font='FontAwesome'>\uf128</span>"
+    FA_QUESTION = "<span font='FontAwesome'>\uf128 </span>"
 
 
     fulltext = ""

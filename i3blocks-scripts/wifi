@@ -4,10 +4,10 @@ if [[ -z "$INTERFACE" ]] ; then
    INTERFACE="${BLOCK_INSTANCE:-wlan0}"
 fi
 
-COLOUR_GE80=${COLOUR_GE80:-#9cd57b}
-COLOUR_GE60=${COLOUR_GE60:-#f3a96a}
+COLOUR_GE80=${COLOUR_GE80:-#78cee9}
+COLOUR_GE60=${COLOUR_GE60:-#9cd57b}
 COLOUR_GE40=${COLOUR_GE40:-#e3d367}
-COLOUR_LOWR=${COLOUR_LOWR:-#f76c7c}
+COLOUR_LOWR=${COLOUR_LOWR:-#f3a96a}
 COLOUR_DOWN=${COLOUR_DOWN:-#f76c7c}
 
 # If no interface, show nothing
@@ -28,8 +28,8 @@ SSID=$(iw "$INTERFACE" info | awk '/ssid/ {$1=""; print $0}')
 QUALITY=$(iw dev ${INTERFACE} link | grep 'dBm$' | grep -Eoe '-[0-9]{2}' | awk '{print ($1 > -50 ? 100 :($1 < -100 ? 0 : ($1+100)*2))}')
 
 # Output
-echo "$SSID: $QUALITY%" # full text
-echo "$QUALITY%" # short text
+echo "  $SSID: $QUALITY%" # full text
+echo "  $QUALITY%" # short text
 if [[ $QUALITY -ge 80 ]]; then
    echo $COLOUR_GE80
 elif [[ $QUALITY -ge 60 ]]; then

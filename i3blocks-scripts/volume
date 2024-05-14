@@ -77,11 +77,11 @@ format() {
   perl_filter+='"; exit}'
   output=$(perl -ne "$perl_filter")
   if [[ $output = "MUTE" ]] ; then
-     ICON=""
+     ICON=""
   else
      ICON=""
   fi
-  echo "$ICON $LABEL$output"
+  echo "$ICON   $LABEL$output"
 }
 
 #------------------------------------------------------------------------

@@ -268,7 +268,7 @@ bar {
     # position bottom
     status_command i3blocks
     # status_command i3status -c /home/$USER/.config/i3status/i3status.conf
-    font pango:Noto Serif Medium 12
+    font pango:Noto Serif Medium 14
     # separator_symbol "|"
 
     colors {

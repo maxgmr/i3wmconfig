@@ -16,4 +16,4 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-setxkbmap -query | awk 'BEGIN{layout="";variant=""}/^layout/{layout=$2}/^variant/{variant="- "$2}END{print(layout,variant)}'
+setxkbmap -query | awk 'BEGIN{layout="";variant=""}/^layout/{layout="   "$2}/^variant/{variant="- "$2}END{print(layout,variant)}'

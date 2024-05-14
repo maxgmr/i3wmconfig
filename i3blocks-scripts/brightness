@@ -19,7 +19,7 @@ if not current_brightness:
    output = "<span color='{}'>Err: no cur</span>".format(color)
 else:
    color = "#fdfff1" # offwhite
-   output = '<span color ="{}">{:.0f}</span>'.format(color, (int(current_brightness) / int(max_brightness)) * 100)
+   output = '<span color ="{}">󰖨  {:.0f}</span>'.format(color, (int(current_brightness) / int(max_brightness)) * 100)
 print(output)
 if not max_brightness or not current_brightness:
    exit(33)
