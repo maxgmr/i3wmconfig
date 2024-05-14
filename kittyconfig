@@ -863,7 +863,7 @@ active_border_color none
 #: The color for the border of the active window. Set this to none to
 #: not draw borders around the active window.
 
-inactive_border_color #f3a96a
+#: inactive_border_color #f3a96a
 
 #: The color for the border of inactive windows.
 
