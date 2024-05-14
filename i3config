@@ -279,7 +279,7 @@ set $orangedim-colour #d65d0e
 set $orange-colour #fe8019
 
 # class				border		backgr.		text		indicator	child_border
-client.focused			$bg3-colour	$bg3-colour	$fg-colour	$fg-colour	$bg3-colour
+client.focused			$bg3-colour	$bg3-colour	$aqua-colour	$fg-colour	$bg3-colour
 client.focused_inactive     	$bg0-coloure6	$bg0-coloure6	$lgrey-coloure6	$fg-coloure6	$bg0-coloure6
 client.unfocused            	$bg0-coloure6	$bg0-coloure6	$lgrey-coloure6	$fg-coloure6	$bg0-coloure6
 client.urgent         	    	$red-colour	$bg0-colour	$red-colour	$fg-colour	$red-colour
@@ -305,8 +305,8 @@ bar {
        statusline $fg-colour
        separator $fg-colour
        #class			border			bg			text
-       focused_workspace	$bg4-coloure6		$bg4-coloure6		$fg-colour
-       active_workspace		$bg0-coloure6		$bg0-coloure6		$fg-colour
+       focused_workspace	$bg4-coloure6		$bg4-coloure6		$aqua-colour
+       active_workspace		$bg0-coloure6		$bg0-coloure6		$aqua-colour
        inactive_workspace	$black-coloure6		$black-coloure6		$fg-colour
     }
 
