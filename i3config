@@ -66,6 +66,9 @@ bindcode $mod+36 exec kitty
 # bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+return exec terminator
 
+# open a Firefox window
+bindcode $mod+28 exec firefox
+
 # kill focused window
 bindcode $mod+Shift+24 kill
 
@@ -336,7 +339,7 @@ bindsym Ctrl+$mod+3 exec --no-startup-id setxkbmap ru && pkill -RTMIN+1 i3blocks
 bindsym Ctrl+$mod+4 exec --no-startup-id setxkbmap gr && pkill -RTMIN+1 i3blocks
 
 # Refresh all i3blocks shortcut
-bindsym Ctrl+$mod+b exec pkill -RTMIN+1 i3blocks ; exec pkill -RTMIN+2 i3blocks ; exec pkill -RTMIN+3 i3blocks ; exec pkill -RTMIN+4 i3blocks ; exec pkill -RTMIN+5 i3blocks ; exec pkill -RTMIN+6 i3blocks ; exec pkill -RTMIN+7 i3blocks ; exec pkill -RTMIN+8 i3blocks ; exec pkill -RTMIN+9 i3blocks ; exec pkill -RTMIN+10 i3blocks
+bindcode Ctrl+$mod+56 exec pkill -RTMIN+1 i3blocks ; exec pkill -RTMIN+2 i3blocks ; exec pkill -RTMIN+3 i3blocks ; exec pkill -RTMIN+4 i3blocks ; exec pkill -RTMIN+5 i3blocks ; exec pkill -RTMIN+6 i3blocks ; exec pkill -RTMIN+7 i3blocks ; exec pkill -RTMIN+8 i3blocks ; exec pkill -RTMIN+9 i3blocks ; exec pkill -RTMIN+10 i3blocks
 
 # Take a screenshot and copy to clipboard
 bindcode --release $mod+Shift+39 exec --no-startup-id ~/computer/scripts/screenshot-clipboard.sh
