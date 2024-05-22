@@ -10,6 +10,13 @@ else
 fi
 cp ~/.config/i3/config "$SCRIPT_DIR/i3config" && echo "i3 config backed up successfully."
 
+if test -f "$SCRIPT_DIR/swayconfig"; then
+    echo "Overwriting sway config backup..."
+else
+    echo "Backing up sway config..."
+fi
+cp ~/.config/sway/config "$SCRIPT_DIR/swayconfig" && echo "sway config backed up successfully."
+
 if test -f "$SCRIPT_DIR/i3blocksconfig"; then
     echo "Overwriting i3blocks config backup..."
 else

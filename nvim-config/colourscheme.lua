@@ -1,6 +1,4 @@
-local colorscheme = 'gruvbox'
-
-
+-- Default options:
 require("gruvbox").setup({
   terminal_colors = true, -- add neovim terminal colors
   undercurl = true,
@@ -19,12 +17,11 @@ require("gruvbox").setup({
   invert_tabline = false,
   invert_intend_guides = false,
   inverse = true, -- invert background for search, diffs, statuslines and errors
-  contrast = "soft", -- can be "hard", "soft" or empty string
+  contrast = "", -- can be "hard", "soft" or empty string
   palette_overrides = {},
   overrides = {},
-  dim_inactive = false,
+  dim_inactive = true,
   transparent_mode = true,
 })
-
 vim.o.background = "dark"
 vim.cmd("colorscheme gruvbox")

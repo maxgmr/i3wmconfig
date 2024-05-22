@@ -17,5 +17,5 @@ PS1='\[\e[1m\][\A \[\e[1;32m\]\u\[\e[m\e[1m\]@\[\e[1;36m\]\h \[\e[m\]\W\[\e[1m\]
 # Aliases
 alias cl='clear'
 alias rmi='rm -i'
-alias packagebrowse="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+alias pacbrow="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 alias ex='exit'
