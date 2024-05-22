@@ -17,6 +17,13 @@ else
 fi
 cp ~/.config/sway/config "$SCRIPT_DIR/swayconfig" && echo "sway config backed up successfully."
 
+if test -f "$SCRIPT_DIR/footconfig"; then
+    echo "Overwriting foot config backup..."
+else
+    echo "Backing up foot config..."
+fi
+cp ~/.config/foot/foot.ini "$SCRIPT_DIR/footconfig" && echo "foot config backed up successfully."
+
 if test -f "$SCRIPT_DIR/i3blocksconfig"; then
     echo "Overwriting i3blocks config backup..."
 else
