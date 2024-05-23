@@ -3,8 +3,13 @@ command=~/computer/i3blocks-scripts/spotify.py
 color=#b8bb26
 interval=5
 
-[key_layout]
-command=~/computer/i3blocks-scripts/key_layout
+# [key_layout]
+# command=~/computer/i3blocks-scripts/key_layout
+# interval=once
+# signal=1
+
+[key_layout_sway]
+command=~/computer/i3blocks-scripts/key_layout_sway
 interval=once
 signal=1
 

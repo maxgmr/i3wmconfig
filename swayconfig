@@ -68,7 +68,7 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | bemenu-run -p "Whaddaya want, boss?" --tb "#282828" --tf "#83a598" --fb "#504945" --ff "#fe8019" --nb "#282828" --nf "#ebdbb2" --hb "#282828" --hf "#8ec07c" --af "#e9d9b0" --fn "GoMono Nerd Font Mono 14" | xargs swaymsg exec --
+set $menu dmenu_path | bemenu-run -p "Whaddaya want, boss?" --tb "#282828" --tf "#83a598" --fb "#504945" --ff "#fe8019" --nb "#282828" --nf "#ebdbb2" --hb "#282828" --hf "#8ec07c" --af "#e9d9b0" --fn "GoMono Nerd Font Mono 16" | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -321,7 +321,6 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10% && pkill
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%- && pkill -RTMIN+2 i3blocks
 
 # Keyboard Layout Switcher
-# TODO
 # bindsym Control+$mod+`1 exec --no-startup-id setxkbmap us && pkill -RTMIN+1 i3blocks
 # bindsym Control+$mod+2 exec --no-startup-id setxkbmap us -variant intl && pkill -RTMIN+1 i3blocks
 # bindsym Control+$mod+3 exec --no-startup-id setxkbmap ru && pkill -RTMIN+1 i3blocks

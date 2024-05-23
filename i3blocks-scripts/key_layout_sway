@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+LAYOUT=$(swaymsg -t get_inputs | grep -A 17 'AT Translated' | grep 'xkb_active_layout_name' | cut -d '"' -f4);
+ICON="";
+
+OUTPUT="!UNKNOWN!";
+
+if [[ $LAYOUT =~ "English (US)" ]]; then
+    OUTPUT="English";
+elif [[ $LAYOUT =~ "intl" ]]; then
+    OUTPUT="International";
+elif [[ $LAYOUT =~ "Russian" ]]; then
+    OUTPUT="Русский язык";
+elif [[ $LAYOUT =~ "Greek" ]]; then
+    OUTPUT="Ελληνικά";
+fi
+
+echo "${ICON}   ${OUTPUT}";
