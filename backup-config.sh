@@ -45,6 +45,19 @@ else
 fi
 cp ~/.bashrc "$SCRIPT_DIR/bashrc" && echo "~/.bashrc backed up successfully."
 
+if test -f "$SCRIPT_DIR/discord"; then
+    echo "Overwriting wayland discord script backup..."
+else
+    echo "Backing up wayland discord script..."
+fi
+cp /usr/local/bin/discord "$SCRIPT_DIR/discord" && echo "wayland discord script backed up successfully."
+
+if test -f "$SCRIPT_DIR/vcodium"; then
+    echo "Overwriting wayland codium script backup..."
+else
+    echo "Backing up wayland codium script..."
+fi
+cp /usr/local/bin/vcodium "$SCRIPT_DIR/vcodium" && echo "wayland vcodium script backed up successfully."
 
 echo "Backing up neovim lua config files..."
 find ~/.config/nvim/lua -mindepth 1 | xargs -I{} cp {} "$SCRIPT_DIR/nvim-config/" && echo "neovim config files backed up successfully."

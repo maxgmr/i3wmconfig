@@ -23,6 +23,10 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
                                                   WAYLAND_DISPLAY
 
 
+# Start IPC scripts
+exec_always ~/computer/sway-ipc/inactive-windows-transparency.py
+
+
 ### Variables
 #
 # Colours
@@ -313,8 +317,11 @@ gaps inner 7
 smart_gaps on
 
 
-# Disable Titlebars on Certain Windows
-for_window [app_id="foot"] border none
+# # Disable Titlebars on Certain Windows
+# for_window [app_id="foot"] border none
+
+# Disable Titlebars
+default_border none
 
 
 # Custom Bindings

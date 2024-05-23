@@ -49,7 +49,7 @@ if __name__ == "__main__":
         "--opacity",
         "-o",
         type=str,
-        default="0.80",
+        default="0.90",
         help="set inactive opacity value in range 0...1",
     )
     parser.add_argument(
