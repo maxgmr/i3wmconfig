@@ -49,5 +49,8 @@ cp ~/.bashrc "$SCRIPT_DIR/bashrc" && echo "~/.bashrc backed up successfully."
 echo "Backing up neovim lua config files..."
 find ~/.config/nvim/lua -mindepth 1 | xargs -I{} cp {} "$SCRIPT_DIR/nvim-config/" && echo "neovim config files backed up successfully."
 
+echo "Backing up sway IPC files..."
+find ~/computer/sway-ipc/ -mindepth 1 | xargs -I{} cp {} "$SCRIPT_DIR/sway-ipc/" && echo "sway IPC files backed up successfully."
+
 echo "Backing up i3blocks scripts..."
 find ~/computer/i3blocks-scripts -mindepth 1 -maxdepth 1 -path ~/computer/i3blocks-scripts/venv -prune -o -print | grep -v ~$ | xargs -I{} cp {} "$SCRIPT_DIR/i3blocks-scripts/" && echo "i3blocks scripts backed up successfully."
