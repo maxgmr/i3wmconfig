@@ -300,11 +300,21 @@ font pango:Noto Serif SemiBold, GoMono Nerd Font Mono 12
 # Cursor Theme
 seat seat0 xcursor_theme Hackneyed 30
 
+
 # Colour Theme
 # border, bg, text, indicator, child_border
 client.focused $bg0-colour $bg0-colour $aqua-colour $fg-colour $bg0-colour
-client.focused_inactive $bg0-colour $bg0-colour $fg-colour $fg-colour $bg0-colour
+client.focused_inactive $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
 client.unfocused $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
+
+
+# Gaps
+gaps inner 7
+smart_gaps on
+
+
+# Disable Titlebars on Certain Windows
+for_window [app_id="foot"] border none
 
 
 # Custom Bindings
@@ -327,7 +337,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%- && pki
 # bindsym Control+$mod+4 exec --no-startup-id setxkbmap gr && pkill -RTMIN+1 i3blocks
 input type:keyboard {
     xkb_layout us,us,ru,gr
-    xkb_variant ,altgr-intl,,
+    xkb_variant altgr-intl,,,
 }
 bindsym --to-code {
     $mod+Ctrl+Shift_L exec --no-startup-id swaymsg input type:keyboard xkb_switch_layout next && pkill -RTMIN+1 i3blocks
