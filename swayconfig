@@ -4,8 +4,58 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+# Set Env Vars on Startup
+# sway does not set DISPLAY/WAYLAND_DISPLAY in the systemd user environment
+# See FS#63021
+# Adapted from xorg's 50-systemd-user.sh, which achieves a similar goal.
+
+# Upstream refuses to set XDG_CURRENT_DESKTOP so we have to.
+exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment DISPLAY \
+                                         SWAYSOCK \
+                                         WAYLAND_DISPLAY \
+                                         XDG_CURRENT_DESKTOP
+
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY \
+                                                  SWAYSOCK \
+                                                  XDG_CURRENT_DESKTOP=sway \
+                                                  WAYLAND_DISPLAY
+
+
 ### Variables
 #
+# Colours
+# gruvbox
+# white
+set $fg-colour #ebdbb2
+set $black-colour #12100e
+set $bgdim-colour #1d2021
+# black-dim
+set $bg0-colour #282828
+set $bg1-colour #3c3836
+set $bg2-colour #504945
+set $bg3-colour #665c54
+set $bg4-colour #7c6f64
+# black
+set $greydim-colour #928374
+# white-dim
+set $lgrey-colour #a89984
+set $reddim-colour #cc241d
+set $red-colour #fb4934
+set $greendim-colour #98971a
+set $green-colour #b8bb26
+set $yellowdim-colour #d79921
+set $yellow-colour #fabd2f
+set $bluedim-colour #458588
+set $blue-colour #83a598
+set $purpledim-colour #b16286
+set $purple-colour #d3869b
+set $aquadim-colour #689d6a
+set $aqua-colour #8ec07c
+set $orangedim-colour #d65d0e
+set $orange-colour #fe8019
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -18,12 +68,13 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu dmenu_path | bemenu-run -p "Whaddaya want, boss?" --tb "#282828" --tf "#83a598" --fb "#504945" --ff "#fe8019" --nb "#282828" --nf "#ebdbb2" --hb "#282828" --hf "#8ec07c" --af "#e9d9b0" --fn "GoMono Nerd Font Mono 14" | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/media/wallpapers/black_one.png fill
 #
 # Example configuration:
 #
@@ -66,10 +117,14 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym --to-code {
+        $mod+Shift+q kill 
+    }
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym --to-code {
+        $mod+d exec $menu
+    }
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -79,18 +134,24 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym --to-code {
+        $mod+Shift+c reload
+    }
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym --to-code {
+        $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    }
 #
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+    bindsym --to-code {
+        $mod+$left focus left
+        $mod+$down focus down
+        $mod+$up focus up
+        $mod+$right focus right
+    }    
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -98,10 +159,12 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
+    bindsym --to-code {    
+        $mod+Shift+$left move left
+        $mod+Shift+$down move down
+        $mod+Shift+$up move up
+        $mod+Shift+$right move right
+    }    
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
@@ -140,25 +203,30 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym --to-code {
+        $mod+b splith
+        $mod+v splitv
+    }
 
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym --to-code {    
+        # Switch the current container between different layout styles
+        $mod+s layout stacking
+        $mod+w layout tabbed
+        $mod+e layout toggle split
 
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+        # Make the current focus fullscreen
+        $mod+f fullscreen
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+        # Toggle the current focus between tiling and floating mode
+        $mod+Shift+space floating toggle
 
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+        # Swap focus between the tiling area and the floating area
+        $mod+space focus mode_toggle
 
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
+        # Move focus to the parent container
+        $mod+a focus parent
+    }
+
 #
 # Scratchpad:
 #
@@ -179,10 +247,12 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym --to-code {
+        $left resize shrink width 10px
+        $down resize grow height 10px
+        $up resize shrink height 10px
+        $right resize grow width 10px
+    }
 
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
@@ -194,24 +264,89 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym --to-code {
+    $mod+r mode "resize"
+}
 
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
+    swaybar_command swaybar
     position top
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command i3blocks
+
+    font pango:Noto Serif Medium 14
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        background $black-coloure6
+        statusline $fg-colour
+        separator $fg-colour
+        # border, bg, text
+        focused_workspace $bg0-coloure6 $bg0-coloure6 $aqua-coloure6
+        inactive_workspace $black-coloure6 $black-coloure6 $lgrey-coloure6
+        urgent_workspace $red-coloure6 $black-coloure6 $red-coloure6
     }
+}
+
+
+# Font
+font pango:Noto Serif SemiBold, GoMono Nerd Font Mono 12
+
+# Cursor Theme
+seat seat0 xcursor_theme Hackneyed 30
+
+# Colour Theme
+# border, bg, text, indicator, child_border
+client.focused $bg0-colour $bg0-colour $aqua-colour $fg-colour $bg0-colour
+client.focused_inactive $bg0-colour $bg0-colour $fg-colour $fg-colour $bg0-colour
+client.unfocused $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
+
+
+# Custom Bindings
+# Volume Control
+bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +5 --max-volume 100 && pkill -RTMIN+3 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -5 --max-volume 100 && pkill -RTMIN+3 i3blocks
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +5 --max-volume 300 && pkill -RTMIN+3 i3blocks
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -5 --max-volume 300 && pkill -RTMIN+3 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+3 i3blocks
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Brightness Adjustment
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10% && pkill -RTMIN+2 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%- && pkill -RTMIN+2 i3blocks
+
+# Keyboard Layout Switcher
+# TODO
+# bindsym Control+$mod+`1 exec --no-startup-id setxkbmap us && pkill -RTMIN+1 i3blocks
+# bindsym Control+$mod+2 exec --no-startup-id setxkbmap us -variant intl && pkill -RTMIN+1 i3blocks
+# bindsym Control+$mod+3 exec --no-startup-id setxkbmap ru && pkill -RTMIN+1 i3blocks
+# bindsym Control+$mod+4 exec --no-startup-id setxkbmap gr && pkill -RTMIN+1 i3blocks
+input type:keyboard {
+    xkb_layout us,us,ru,gr
+    xkb_variant ,altgr-intl,,
+}
+bindsym --to-code {
+    $mod+Ctrl+Shift_L exec --no-startup-id swaymsg input type:keyboard xkb_switch_layout next && pkill -RTMIN+1 i3blocks
+}
+
+# Take Screenshot & Save to Clipboard
+bindsym --to-code {
+    $mod+Shift+S exec --no-startup-id slurp | grim -g - - | wl-copy
+}
+
+# Take Screenshot & Save to File
+bindsym --to-code {
+    $mod+Shift+D exec --no-startup-id slurp | grim -g - ~/media/screenshots/"$(date +%Y-%m-%d_%H-%M-%S)".png
+}
+
+# Open Firefox window
+bindsym --to-code {
+    $mod+t exec firefox
 }
 
 include /etc/sway/config.d/*
