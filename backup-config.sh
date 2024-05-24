@@ -59,6 +59,13 @@ else
 fi
 cp /usr/local/bin/vcodium "$SCRIPT_DIR/vcodium" && echo "wayland vcodium script backed up successfully."
 
+if test -f "$SCRIPT_DIR/ncspot.toml"; then
+    echo "Overwriting ncspot config backup..."
+else
+    echo "Backing up ncspot config..."
+fi
+cp ~/.config/ncspot/config.toml "$SCRIPT_DIR/ncspot.toml" && echo "ncspot config backed up successfully."
+
 echo "Backing up neovim lua config files..."
 find ~/.config/nvim/lua -mindepth 1 | xargs -I{} cp {} "$SCRIPT_DIR/nvim-config/" && echo "neovim config files backed up successfully."
 
