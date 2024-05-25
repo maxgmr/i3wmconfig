@@ -332,6 +332,9 @@ smart_gaps on
 # Thin border around windows
 default_border pixel 2
 
+# Smart Borders
+smart_borders on
+
 # Custom Bindings
 # Volume Control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +5 --max-volume 100 && pkill -RTMIN+3 i3blocks
