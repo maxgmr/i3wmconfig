@@ -342,8 +342,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%- && pki
 # bindsym Control+$mod+3 exec --no-startup-id setxkbmap ru && pkill -RTMIN+1 i3blocks
 # bindsym Control+$mod+4 exec --no-startup-id setxkbmap gr && pkill -RTMIN+1 i3blocks
 input type:keyboard {
-    xkb_layout us,us,ru,gr
-    xkb_variant altgr-intl,,,
+    xkb_layout us,ru,gr
+    xkb_variant altgr-intl,,
 }
 bindsym --to-code {
     $mod+Ctrl+Shift_L exec --no-startup-id swaymsg input type:keyboard xkb_switch_layout next && pkill -RTMIN+1 i3blocks

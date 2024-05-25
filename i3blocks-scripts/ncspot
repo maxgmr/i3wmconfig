@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+MUSIC_ICON=""
+PAUSE_ICON="󰏤"
+PLAY_ICON="󰐊"
+SOCK_PATH="/run/user/1000/ncspot/ncspot.sock"
+
+if nc -W 1 -U $SOCK_PATH > /dev/null; then
+    ncspot_sock_out=$(nc -W 1 -U $SOCK_PATH)
+
+    status_icon=""
+    if echo $ncspot_sock_out | jq -e ".mode.Playing" > /dev/null; then
+        status_icon=$PLAY_ICON
+    else
+        status_icon=$PAUSE_ICON
+    fi
+
+
+    eval current_artist=$(echo $ncspot_sock_out | jq ".playable.artists[0]")
+    eval current_album=$(echo $ncspot_sock_out | jq ".playable.album")
+    eval current_title_full=$(echo $ncspot_sock_out | jq ".playable.title")
+
+    current_title=$current_title_full
+    if [ ${#current_title_full} -gt 50 ]; then
+        current_title="${current_title:0:50}..."
+    fi
+
+    # full_text
+    echo "${MUSIC_ICON} ${status_icon} ${current_title} - ${current_artist}"
+    # short_text
+    echo "${status_icon} ${current_title}"
+    # colour
+    echo "#b8bb26"
+fi

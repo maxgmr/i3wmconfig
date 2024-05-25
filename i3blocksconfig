@@ -1,7 +1,12 @@
-[spotify]
-command=~/computer/i3blocks-scripts/spotify.py
-color=#b8bb26
-interval=5
+# [spotify]
+# command=~/computer/i3blocks-scripts/spotify.py
+# color=#b8bb26
+# interval=5
+
+[ncspot]
+command=~/computer/i3blocks-scripts/ncspot
+interval=2
+signal=10
 
 # [key_layout]
 # command=~/computer/i3blocks-scripts/key_layout
