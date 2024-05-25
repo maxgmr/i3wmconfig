@@ -1,7 +1,7 @@
 use_nerdfont = true
 
 [theme]
-background = "#282828"
+background = "#282828E6"
 primary = "#EBDBB2"
 secondary = "#E9D9B0"
 title = "#8EC07C"
