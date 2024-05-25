@@ -20,8 +20,8 @@ if nc -W 1 -U $SOCK_PATH > /dev/null; then
     eval current_title_full=$(echo $ncspot_sock_out | jq ".playable.title")
 
     current_title=$current_title_full
-    if [ ${#current_title_full} -gt 50 ]; then
-        current_title="${current_title:0:50}..."
+    if [ ${#current_title_full} -gt 70 ]; then
+        current_title="${current_title:0:70}..."
     fi
 
     # full_text
