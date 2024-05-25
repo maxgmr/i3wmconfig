@@ -305,9 +305,15 @@ font pango:Noto Serif SemiBold, GoMono Nerd Font Mono 12
 seat seat0 xcursor_theme Hackneyed 30
 
 
-# Colour Theme
+# Colour Theme for Normal Borders
 # border, bg, text, indicator, child_border
 client.focused $bg0-colour $bg0-colour $aqua-colour $fg-colour $bg0-colour
+client.focused_inactive $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
+client.unfocused $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
+
+# Colour Theme for Pixel Borders
+# border, bg, text, indicator, child_border
+client.focused $green-colour $green-colour $aqua-colour $fg-colour $green-colour
 client.focused_inactive $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
 client.unfocused $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
 
@@ -321,7 +327,10 @@ smart_gaps on
 # for_window [app_id="foot"] border none
 
 # Disable all Borders
-default_border none
+# default_border none
+
+# Thin border around windows
+default_border pixel 2
 
 # Custom Bindings
 # Volume Control
