@@ -313,7 +313,7 @@ client.unfocused $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $b
 
 # Colour Theme for Pixel Borders
 # border, bg, text, indicator, child_border
-client.focused $green-colour $green-colour $aqua-colour $fg-colour $green-colour
+client.focused $greendim-colour $greendim-colour $aqua-colour $fg-colour $greendim-colour
 client.focused_inactive $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
 client.unfocused $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
 
