@@ -4,6 +4,10 @@ vim.opt.termguicolors = true
 
 require("gitsigns").setup()
 
+local function eye()
+        return [[󰈈]]
+end
+
 require("lualine").setup {
     options = { 
         theme = "gruvbox",
@@ -11,7 +15,7 @@ require("lualine").setup {
         disabled_filetypes = {}
     },
     sections = {
-        lualine_a = { 'mode' },
+        lualine_a = { eye, 'mode' },
         lualine_b = { 'branch' },
         lualine_c = { {
             "filename",

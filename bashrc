@@ -19,3 +19,4 @@ alias cl='clear'
 alias rmi='rm -i'
 alias pacbrow="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 alias ex='exit'
+alias dcss='crawl-tiles'
