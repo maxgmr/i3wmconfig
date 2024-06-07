@@ -67,7 +67,7 @@ fi
 cp ~/.config/ncspot/config.toml "$SCRIPT_DIR/ncspot.toml" && echo "ncspot config backed up successfully."
 
 echo "Backing up neovim lua config files..."
-find ~/.config/nvim/lua -mindepth 1 | xargs -I{} cp {} "$SCRIPT_DIR/nvim-config/" && echo "neovim config files backed up successfully."
+find ~/.config/nvim/lua/maxgmr -mindepth 1 | xargs -I{} cp {} "$SCRIPT_DIR/nvim-config/" && echo "neovim config files backed up successfully."
 
 echo "Backing up sway IPC files..."
 find ~/computer/sway-ipc/ -mindepth 1 | xargs -I{} cp {} "$SCRIPT_DIR/sway-ipc/" && echo "sway IPC files backed up successfully."
