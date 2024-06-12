@@ -81,47 +81,85 @@ style=beam
 # alpha=1.0
 alpha=0.9
 # background=242424
-background=282828
 # foreground=ffffff
-foreground=ebdbb2
 # flash=7f7f00
 # flash-alpha=0.5
 
-## Normal/regular colors (color palette 0-7)
-# regular0=242424  # black
+# dark mode
+background=282828
+foreground=ebdbb2
+# Normal/regular colors (color palette 0-7)
+# black
 regular0=282828
-# regular1=f62b5a  # red
+# red
 regular1=cc241d
-# regular2=47b413  # green
+# green
 regular2=98971a
-# regular3=e3c401  # yellow
+# yellow
 regular3=d79921
-# regular4=24acd4  # blue
+# blue
 regular4=458588
-# regular5=f2affd  # magenta
+# magenta
 regular5=b16286
-# regular6=13c299  # cyan
+# cyan
 regular6=689d6a
-# regular7=e6e6e6  # white
+# white
 regular7=a89984
-
-## Bright colors (color palette 8-15)
-# bright0=616161   # bright black
+# Bright colors (color palette 8-15)
+# bright black
 bright0=928374
-# bright1=ff4d51   # bright red
+# bright red
 bright1=fb4934
-# bright2=35d450   # bright green
+# bright green
 bright2=b8bb26
-# bright3=e9e836   # bright yellow
+# bright yellow
 bright3=fabd2f
-# bright4=5dc5f8   # bright blue
+# bright blue
 bright4=83a598
-# bright5=feabf2   # bright magenta
+# bright magenta
 bright5=d3869b
-# bright6=24dfc4   # bright cyan
+# bright cyan
 bright6=8ec07c
-# bright7=ffffff   # bright white
+# bright white
 bright7=ebdbb2
+
+# # light mode
+# background=fbf1c7
+# foreground=3c3836
+# # Normal/regular colors (color palette 0-7)
+# # black
+# regular0=fbf1c7
+# # red
+# regular1=cc241d
+# # green
+# regular2=98971a
+# # yellow
+# regular3=d79921
+# # blue
+# regular4=458588
+# # magenta
+# regular5=b16286
+# # cyan
+# regular6=689d6a
+# # white
+# regular7=7c6f64
+# # Bright colors (color palette 8-15)
+# # bright black
+# bright0=928374
+# # bright red
+# bright1=9d0006
+# # bright green
+# bright2=79740e
+# # bright yellow
+# bright3=b57614
+# # bright blue
+# bright4=076678
+# # bright magenta
+# bright5=8f3f71
+# # bright cyan
+# bright6=427b58
+# # bright white
+# bright7=3c3836
 
 ## dimmed colors (see foot.ini(5) man page)
 # dim0=<not set>

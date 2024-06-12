@@ -27,10 +27,10 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 exec_always ~/computer/sway-ipc/inactive-windows-transparency.py
 
 
-### Variables
-#
+## Variables
+
 # Colours
-# gruvbox
+# gruvbox-dark
 # white
 set $fg-colour #ebdbb2
 set $black-colour #12100e
@@ -60,6 +60,36 @@ set $aqua-colour #8ec07c
 set $orangedim-colour #d65d0e
 set $orange-colour #fe8019
 
+# # gruvbox-light
+# # white
+# set $fg-colour #3c3836
+# set $black-colour #12100e
+# set $bgdim-colour #ebdbb2
+# # black-dim
+# set $bg0-colour #fbf1c7
+# set $bg1-colour #ebdbb2
+# set $bg2-colour #d5c4a1
+# set $bg3-colour #bdae93
+# set $bg4-colour #a89984
+# # black
+# set $greydim-colour #928374
+# # white-dim
+# set $lgrey-colour #7c6f64
+# set $reddim-colour #cc241d
+# set $red-colour #9d0006
+# set $greendim-colour #98971a
+# set $green-colour #79740e
+# set $yellowdim-colour #d79921
+# set $yellow-colour #b57614
+# set $bluedim-colour #458588
+# set $blue-colour #076678
+# set $purpledim-colour #b16286
+# set $purple-colour #8f3f71
+# set $aquadim-colour #689d6a
+# set $aqua-colour #427b58
+# set $orangedim-colour #d65d0e
+# set $orange-colour #af3a03
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -72,13 +102,15 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | bemenu-run -p "Whaddaya want, boss?" --tb "#282828" --tf "#83a598" --fb "#504945" --ff "#fe8019" --nb "#282828" --nf "#ebdbb2" --hb "#282828" --hf "#8ec07c" --af "#e9d9b0" --fn "GoMono Nerd Font Mono 16" | xargs swaymsg exec --
+# set $menu dmenu_path | bemenu-run -p "Whaddaya want, boss?" --tb "#282828" --tf "#83a598" --fb "#504945" --ff "#fe8019" --nb "#282828" --nf "#ebdbb2" --hb "#282828" --hf "#8ec07c" --af "#e9d9b0" --fn "GoMono Nerd Font Mono 16" | xargs swaymsg exec --
+set $menu dmenu_path | bemenu-run -p "Whaddaya want, boss?" --tb "#282828" --tf "#83a598" --fb "#504945" --ff "#fe8019" --nb "#282828" --nf "#ebdbb2" --hb "#282828" --hf "#8ec07c" --af "#e9d9b0" --fn "Libre Baskerville Regular 16" | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output * bg ~/media/wallpapers/black_one.png fill
+# output * bg ~/media/wallpapers/obfuscator_crop.jpg fill
 #
 # Example configuration:
 #
@@ -155,7 +187,7 @@ output * bg ~/media/wallpapers/black_one.png fill
         $mod+$down focus down
         $mod+$up focus up
         $mod+$right focus right
-    }    
+    }
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -163,12 +195,12 @@ output * bg ~/media/wallpapers/black_one.png fill
     bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym --to-code {    
+    bindsym --to-code {
         $mod+Shift+$left move left
         $mod+Shift+$down move down
         $mod+Shift+$up move up
         $mod+Shift+$right move right
-    }    
+    }
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
@@ -212,7 +244,7 @@ output * bg ~/media/wallpapers/black_one.png fill
         $mod+v splitv
     }
 
-    bindsym --to-code {    
+    bindsym --to-code {
         # Switch the current container between different layout styles
         $mod+s layout stacking
         $mod+w layout tabbed
@@ -284,22 +316,23 @@ bar {
     # The default just shows the current date and time.
     status_command i3blocks
 
-    font pango:Noto Serif Medium 14
+    font pango:Libre Baskerville, Noto Serif 14
 
     colors {
-        background $black-coloure6
+        background $bg0-coloure6
         statusline $fg-colour
         separator $fg-colour
         # border, bg, text
         focused_workspace $bg0-coloure6 $bg0-coloure6 $aqua-coloure6
-        inactive_workspace $black-coloure6 $black-coloure6 $lgrey-coloure6
-        urgent_workspace $red-coloure6 $black-coloure6 $red-coloure6
+        inactive_workspace $bg0-coloure6 $bg0-coloure6 $lgrey-coloure6
+        urgent_workspace $red-coloure6 $bg0-coloure6 $red-coloure6
     }
 }
 
 
 # Font
-font pango:Noto Serif SemiBold, GoMono Nerd Font Mono 12
+font pango:Libre Baskerville, Noto Serif 12
+# font pango:Libre Baskerville Regular, Noto Serif SemiBold, GoMono Nerd Font Mono 12
 
 # Cursor Theme
 seat seat0 xcursor_theme Hackneyed 30
@@ -307,13 +340,13 @@ seat seat0 xcursor_theme Hackneyed 30
 
 # Colour Theme for Normal Borders
 # border, bg, text, indicator, child_border
-client.focused $bg0-colour $bg0-colour $aqua-colour $fg-colour $bg0-colour
-client.focused_inactive $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
-client.unfocused $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
+# client.focused $bg0-colour $bg0-colour $aqua-colour $fg-colour $bg0-colour
+# client.focused_inactive $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
+# client.unfocused $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
 
 # Colour Theme for Pixel Borders
 # border, bg, text, indicator, child_border
-client.focused $greendim-colour $greendim-colour $aqua-colour $fg-colour $greendim-colour
+client.focused $greendim-colour $greendim-colour $bg0-colour $fg-colour $greendim-colour
 client.focused_inactive $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
 client.unfocused $black-coloure6 $black-coloure6 $lgrey-coloure6 $fg-coloure6 $black-coloure6
 

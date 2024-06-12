@@ -5,22 +5,21 @@ import os
 import re
 
 config = dict(os.environ)
-current_brightness = check_output(['brightnessctl', 'g'], universal_newlines=True)
-max_brightness = check_output(['brightnessctl', 'm'], universal_newlines=True)
+current_brightness = check_output(["brightnessctl", "g"], universal_newlines=True)
+max_brightness = check_output(["brightnessctl", "m"], universal_newlines=True)
 output = ""
 
 if not max_brightness:
-   # not good!!!!!!!
-   color = "#ebdbb2" # white
-   output = "<span color='{}'>Err: no max</span>".format(color)
+    # not good!!!!!!!
+    output = "<span>Err: no max</span>"
 if not current_brightness:
-   # not good!!!!!!
-   color = "#ebdbb2" # offwhite
-   output = "<span color='{}'>Err: no cur</span>".format(color)
+    # not good!!!!!!
+    output = "<span>Err: no cur</span>"
 else:
-   color = "#ebdbb2" # offwhite
-   output = '<span color ="{}">󰖨  {:.0f}</span>'.format(color, (int(current_brightness) / int(max_brightness)) * 100)
+    output = "<span>󰖨  {:.0f}</span>".format(
+        (int(current_brightness) / int(max_brightness)) * 100
+    )
 print(output)
 if not max_brightness or not current_brightness:
-   exit(33)
-  
+    exit(33)
+
